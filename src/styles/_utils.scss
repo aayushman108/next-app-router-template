@@ -1,0 +1,45 @@
+// For visually hide the content
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@mixin responsive-for($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin d-flex(
+  $flex-direction: "row",
+  $justify-content: "flex-start",
+  $align-items: "flex-start"
+) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@function fontSize($size) {
+  @return var(--font-size-#{$size});
+}
+
+@function color($family, $shade) {
+  // @if $family {
+  @return var(--color-#{$family}-#{$shade});
+  // } @else {
+  //   @return var(--color-#{$shade});
+  // }
+}
+
+@function background-color($shade) {
+  @return var(--background-color-$shade);
+}
