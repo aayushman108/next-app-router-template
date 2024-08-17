@@ -1,0 +1,17 @@
+@import "./[id]/singlePhotoFeed";
+@import "./@modal/singlePhotoFeedModal";
+
+#photo_feed_page {
+  #photo_feed {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1;
+      img {
+      }
+    }
+  }
+}

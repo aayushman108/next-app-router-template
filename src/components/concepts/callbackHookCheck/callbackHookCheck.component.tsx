@@ -4,16 +4,24 @@ import React, { useCallback, useMemo, useState } from "react";
 export function CallbackHookCheck() {
   const [count, setCount] = useState(0);
   const [count2, setCount2] = useState(0);
+  const [count3, _setCount3] = useState(0);
+
+  const obj = { a: 1, b: 2, c: 3, d: 4 };
+  const { a, b, ...rest } = obj;
 
   const handleIncreaseCount = useCallback(() => {
     setCount((prev) => prev + 1);
-  }, []); //count is not used as dependency as prev value of count is used
+  }, []);
 
   const handleDecreaseCount = useCallback(() => {
-    setCount(count2 - 1);
-  }, [count2]); //count2 is used as dependency as it is directly used
+    setCount2(count2 - 1);
+  }, []);
 
-  const modifiedCount = useMemo(() => {}, []);
+  const modifiedCount = useMemo(() => {
+    return {
+      count: count + 5,
+    };
+  }, []);
 
   return (
     <section>
@@ -39,6 +47,7 @@ export function CallbackHookCheck() {
         </li>
         <li>when the functions are expensive to create and execute</li>
       </ul>
+      <div>{`useMemo data - ${modifiedCount.count}`}</div>
     </section>
   );
 }

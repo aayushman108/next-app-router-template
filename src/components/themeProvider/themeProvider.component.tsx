@@ -16,7 +16,13 @@ interface IThemeContext {
 
 const ThemeContext = createContext<IThemeContext | undefined>(undefined);
 
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+  return context;
+};
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<ITheme>("light");
@@ -30,6 +36,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {

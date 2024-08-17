@@ -1,5 +1,6 @@
-.main {
+.link {
   &_div {
-    color: color("primary", 100);
+    color: color(null, 100);
+    background-color: background-color(100);
   }
 }

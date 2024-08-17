@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "../styles/global.scss";
@@ -12,13 +13,27 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  hero,
+  tabGroup,
+  tabGroupTwo,
 }: Readonly<{
   children: React.ReactNode;
+  hero: React.ReactNode;
+  tabGroup: React.ReactNode;
+  tabGroupTwo: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <>
+            {children}
+            {hero}
+            {tabGroup}
+            {tabGroupTwo}
+          </>
+        </ThemeProvider>
+        <div id="modal-root" />
       </body>
     </html>
   );

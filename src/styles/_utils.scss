@@ -33,13 +33,13 @@
 }
 
 @function color($family, $shade) {
-  // @if $family {
-  @return var(--color-#{$family}-#{$shade});
-  // } @else {
-  //   @return var(--color-#{$shade});
-  // }
+  @if $family {
+    @return var(--color-#{$family}-#{$shade});
+  } @else {
+    @return var(--color-#{$shade});
+  }
 }
 
 @function background-color($shade) {
-  @return var(--background-color-$shade);
+  @return var(--background-color-#{$shade});
 }

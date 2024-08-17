@@ -1,0 +1,17 @@
+.single_photo_feed_modal {
+  width: 100%;
+  height: calc(100% - 3rem);
+  .image_wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .content {
+    padding: 1rem;
+  }
+}

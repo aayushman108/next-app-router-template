@@ -1,11 +1,15 @@
-import { CallbackHookCheck, Header } from "@/components";
+import React from "react";
+import Link from "next/link";
+// import { Header } from "@/components";
+// import { CallbackHookCheck } from "@/components/concepts";
 
 export default function Home() {
   return (
-    <main className="main">
-      <div className="main_div">Hello world</div>
-      <Header />
-      <CallbackHookCheck />
-    </main>
+    <div className="link">
+      <div className="link_div">Hello world</div>
+      {/* <Header /> */}
+      <Link href="photo-feed">Go to photo-feed page</Link>
+      {/* <CallbackHookCheck /> */}
+    </div>
   );
 }
