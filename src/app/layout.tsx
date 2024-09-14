@@ -15,9 +15,6 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  hero: React.ReactNode;
-  tabGroup: React.ReactNode;
-  tabGroupTwo: React.ReactNode;
 }>) {
   return (
     <html lang="en">
