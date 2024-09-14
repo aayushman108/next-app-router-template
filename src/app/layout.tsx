@@ -13,9 +13,6 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-  hero,
-  tabGroup,
-  tabGroupTwo,
 }: Readonly<{
   children: React.ReactNode;
   hero: React.ReactNode;
@@ -25,15 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider>
-          <>
-            {children}
-            {hero}
-            {tabGroup}
-            {tabGroupTwo}
-          </>
-        </ThemeProvider>
-        <div id="modal-root" />
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
