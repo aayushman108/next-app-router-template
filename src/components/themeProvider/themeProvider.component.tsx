@@ -25,14 +25,15 @@ export const useTheme = () => {
 };
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<ITheme>("light");
-
-  useEffect(() => {
-    const theme = localStorage.getItem("theme") as ITheme | null;
-    if (theme) {
-      setTheme(theme);
+  const [theme, setTheme] = useState<ITheme>(() => {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      return savedTheme as ITheme;
     }
-  }, []);
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  });
 
   useEffect(() => {
     document.body.setAttribute("data-theme", theme);
